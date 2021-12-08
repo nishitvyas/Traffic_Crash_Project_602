@@ -9,15 +9,6 @@ The dataset is about the traffic crashes in Detroit city available on [OpenData.
 # Business Question/Problem Statement
 Predicting the presence of matter (Drug/ Alcohol) in the person's body who involed in the crash is the problem statement. This project can be a potential alternative to confirm the presence if the results of drug test takes time or not possible to conduct. We will be tuning the Logistic Regression and Random Forest model based on the accuracy metrics.
 
-- ____ 
-
-- __With the proportion it is known that young people are more likely to drink and drive as compared to elderly people.__
-
-- ____
-
-__Inference:__ From these points we can infer that the inspection or patrolling duty from evening to midnight should be increased, this might help to find more people who consumes alcohol or drug and drive.
-
-
 
 # Exploratory Analysis Findings
 - Initially, based on three columns, we created 8 classes.
@@ -28,20 +19,31 @@ __Inference:__ From these points we can infer that the inspection or patrolling 
 - Most of the crashes that happened, which involve the people who haven't consumed drug or alcohol occurred at the evening pick hours between 3pm to 7pm
 - Maximum of the accidents have happened in the local roads where the red_light_running also happens most, but most of them are very less severe.
 
+__Inference:__ From these points we can infer that the inspection or patrolling duty from evening to midnight should be increased, this might help to find more people who consumes alcohol or drug and drive.
+
+
 
 # Classification Results
 We segemented our experiment into three parts:
-- __Model 1: Logistic Regression (Class Imbalance)__
-    - __Accuracy:__ 38%
-    - With the imbalance, the model was only able to do good on 'Non-Consumed Youth' and for others it couldn't do well.
-    - The data has very low variance.
+- __Class Imbalance (8 Classes)__
+    - Logistic Regression__
+      - Accuracy: 86%
+      - With the imbalance, the model was only able to do good on 'Non-Consumed Youth' and for others it couldn't do well.
+      - The data has very low variance.
+      - Similarly after training the model such as Decision Tree and Random Forest, similar results were obtained. With the more number of co-related classes, the model gets confused, so instead of differentiating the classes on the basis of elder or youth, we will focus on whether a person has alcohol or drug consumed.
   
- - __Model 1: Logistic Regression (Class Imbalance)__
-    - __Accuracy:__ 38%
-    - With the imbalance, the model was only able to do good on 'Non-Consumed Youth' and for others it couldn't do well.
-    - The data has very low variance.
-  
- 
+ - __Balanced Classes SMOTE(8 Classes)__
+    - __Logistic Regression__ 
+      -  Accuracy: 38%
+      - With the up-sampled values, the model was able to identify all the classes but not with sufficiently good accuracy. With the more number of co-related classes, the model gets confused, so instead of differentiating the classes on the basis of elder or youth, we will focus on whether a person has alcohol or drug consumed in the third part.
+
+ - __Balanced Classes SMOTE(3 Classes)__
+     - __Logistic Regression (Ridge_Regularization(C): 0.01, Solver: SAG)__
+        - Accuracy: 81%
+        - The class Drug has the lowest number of records (before SMOTE) and generating significantly high number of samples using least values, low variance got slightly better.
+      - __Decision Tree (Ridge_Regularization(C): 0.01, Solver: SAG)__
+        - Accuracy: 81%
+        - The class Drug has the lowest number of records (before SMOTE) and generating significantly high number of samples using least values, low variance got slightly better.
 
 
 
