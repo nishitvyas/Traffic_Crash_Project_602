@@ -15,8 +15,8 @@ Predicting the presence of matter (Drug/ Alcohol) in the person's body who invol
 - The columns such as 'deer', 'school_bus', 'train', can be dropped while modeling as these columns are singleton
 - After checking the percent values of the crashes, we found the almost similar distribution within the alcohol and drug
 - After drawing the similarity, it can interpreted that the most of the crashes happen 'Same Direction Rear End' but for other codes, the accurate mapping won't be possible as the factors for crashes in Detroit wouldn't be same as Maryland.
-- Majority of the people who consumes alcohol or drug, their crashes are mostly occured around midnight while the people who didn't consume drug or alcohol, their crashes were    mostly reocrded between 2pm and 6pm. __Inference:__ From these points we can infer that the inspection or patrolling duty from evening to midnight should be increased, this  might help to find more people who consumes alcohol or drug and drive.
-- Most of the crashes that happened, which involve the people who haven't consumed drug or alcohol occurred at the evening pick hours between 3pm to 7pm
+- Majority of the people who consumes alcohol or drug, their crashes are mostly occured around midnight while the people who didn't consume drug or alcohol, their crashes were    mostly reocrded between 2pm and 6pm.
+- Most of the crashes that happened, which involve the people who haven't consumed drug or alcohol occurred at the evening peak hours between 3pm to 7pm (Time when people get home)
 - Maximum of the accidents have happened in the local roads where the red_light_running also happens most, but most of them are very less severe.
 
 __Inference:__ From these points we can infer that the inspection or patrolling duty from evening to midnight should be increased, this might help to find more people who consumes alcohol or drug and drive.
@@ -41,23 +41,20 @@ We segemented our experiment into three parts:
      - __Logistic Regression (Ridge_Regularization(C): 0.01, Solver: SAG)__
         - Accuracy: 81%
         - The class Drug has the lowest number of records (before SMOTE) and generating significantly high number of samples using least values, low variance got slightly better.
-      - __Decision Tree (Ridge_Regularization(C): 0.01, Solver: SAG)__
-        - Accuracy: 81%
+      - __Decision Tree (GridSearch(max_depth: 7))__
+        - Accuracy: 83%
         - The class Drug has the lowest number of records (before SMOTE) and generating significantly high number of samples using least values, low variance got slightly better.
-
-
-
-- In the first part we have implemented the cross validation score on Logistic Regression(LogR), Decision Tree(DT) and Support Vector Machine(SVM). We got good accuracy on SVM but the deviation was of 2%, for DT and LogR it was 64% for both and the deviation of 2% and 1% repectively. 
-- For the second part, we passed three models into an ensemble where the voting was selected as 'hard', since we are concerned about the accuracy, probability can be opted out.
-- In the third part, we performed the GridSearch on the Ensemble to get the best estimator and its score, which was 67% (__max of all__)
-- Lastly, we performed the AdaBoosting Classification where we kept 500 estimators but we got 64% which wasn't that effective as GridSearch.
-- As __conclusion__, we should consider the Ensemble with the GridSearch as it gave maximum accuracy of all and also the deviation was 0%, it took __more computations__ than other models.
+      - __Random Forest (n_estimators=100, criterion='entropy', max_depth=6)__
+        - Accuracy: 80%
+        - The model has memorized the values of 'Alcohol' class as its recall is 1.
+      - __Support Vector Machine (Defaults) (Took a lot amount of time)__
+        - Accuracy: NA
+        - NA
 
 
 # Potential Next Steps and Follow-ups
-License type details, or to know the exact age of the person 
-
-
-The consideration of the wind_dir, origin and dest needs to done for checking how the model predicts then.
-Also the clarification on the weather of the origin or dest is not given.
-
+- The help from an SME regarding the significance of features such as 'dis_ctrl_i', 'young', etc and their values should be explained, as it can help to perform the required feature engineering appropriately.
+- The 12K missing values in the jurisdiction should be addressed, we can run a clustering model on those values but which feature can be the most relevant for it is our concern to check.
+- The additional features such as the 'exact_age' of the person instead of a boolean feature 'elderly' can provide a good variance. More specific numeric is better than boolean feature.
+- As per the inference about the patrolling, we need more data where the person has consumed alcohol or drug and involved in the crash. Significant level of variance will be obtained if this step is achieved.
+- From the above point, introducing the additional continous numeric features can be a good improvising point. Features such as 
