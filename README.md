@@ -6,7 +6,7 @@ The dataset is about the traffic crashes in Detroit city available on [OpenData.
  
 
 # Business Question/Problem Statement
-Predicting the presence of matter (Drug/ Alcohol) in the person's body involved in the crash is the problem statement. This project can be a potential alternative to confirm the presence of the results of drug test takes time or not possible to conduct. We will be tuning the Logistic Regression and Random Forest model based on the accuracy metrics.
+Predicting the presence of matter (Drug/ Alcohol) in the person's body involved in the crash is the problem statement. This project can be a potential alternative to confirm the presence of the results of drug test takes time or not possible to conduct. According to the 4th Amendment, the police need a warrant or to develop probable cause that the person is intoxicated, the person involved in the crash can deny taking a blood/breath test. This is the reason why we will find very few records on drugs and alcohol. Based on the historical data, we can develop the instinct and we can eliminate the time delay to confirm the presence of the matter. We will be tuning the Logistic Regression and Random Forest model based on the accuracy metrics.
 
 # Exploratory Analysis Findings
 
