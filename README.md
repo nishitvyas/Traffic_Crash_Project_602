@@ -18,6 +18,7 @@ Predicting the presence of matter (Drug/ Alcohol) in the person's body involved 
 - The majority of the people who consume alcohol or drug their crashes mostly occur around midnight, while the people who didn't consume drugs or alcohol, crashes were mostly recorded between 2 pm and 6 pm
 - Most of the crashes that happened, which involved the people who haven't consumed drugs or alcohol, occurred at the evening peak hours between 3 pm to 7 pm (Time when people get home)
 - A maximum of the accidents have happened in the local roads where the red_light_running also happens most, but most of them are less severe
+- We can step the primary roads into others except the top 10 roads but the top 10 primary roads covers less than 15% of the crashes and there are over 7K primary roads. So stepping all the primary roads into others except top 10 of them won't be good option as the variance in the data would be very low.
 
 __Inference:__ From these points, we can infer that the inspection or patrolling duty from evening to midnight should be increased; this might help to find more people who consume alcohol or drug and drive.
 
