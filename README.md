@@ -50,6 +50,10 @@ We segmented our experiment into three parts:
     - __Support Vector Machine (Defaults) (Took a lot amount of time to compute, code mentioned in 'Elborated' file)__
       - Accuracy: NA
       - NA
+   -  __Best Estimator:__
+      - The best estimator is the shown above, the solver is 'Newton-CG' as it was able to deal well with the all the three classes than other solvers, although there is not vast differences in the results of all the models
+      - 'LBFGS' is not used in the Grid Search as it is not able to converge in 1000 iterations
+      - In terms of computing time, Decision tree was the fastest of all, but it shows more deviation among precision and recall than the deviation in Logistic Regression, that's why we are selecting Logistic Regression as the best estimator
 
 
 # Potential Next Steps and Follow-ups
